@@ -1,0 +1,14 @@
+#!/bin/bash
+
+LRZ_CMD="lrz.jfa -Z"
+LRZ_OPT="-b -e -E --o-sync -r -t 100 -q"
+#LRZ_OPT="-b -e -E --o-sync -r -t 100 -vvvvvv"
+#LRZ_OUT="~/lrz-stderr.log"
+if [ ! -z "$LRZ_OUT" ]; then
+    ZTX_PEER_CMD="$LRZ_CMD $LRZ_OPT" 2>> "$LRZ_OUT"
+else
+    ZTX_PEER_CMD="$LRZ_CMD $LRZ_OPT"
+fi
+
+$ZTX_PEER_CMD
+
